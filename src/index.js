@@ -1,7 +1,4 @@
-import { default as _filter } from 'lodash/filter'
-import { default as _debounce } from 'lodash/debounce'
-import { default as _get } from 'lodash/get'
-import { asArray } from '@cypherlab/js-utils'
+import { _, asArray } from '@cypherlab/js-utils'
 
 
 
@@ -27,7 +24,7 @@ class DataTable extends React.Component {
 
     this.filterRef = React.createRef()
 
-    this.onFilter = _debounce(this.onFilter.bind(this), 300)
+    this.onFilter = _.debounce(this.onFilter.bind(this), 300)
     this.filtered = this.filtered.bind(this)
     this.count = this.count.bind(this)
   }
@@ -52,7 +49,7 @@ class DataTable extends React.Component {
 
     if(hideNoQuery && !filter) return []
 
-    let filtered = _filter(data, d => {
+    let filtered = _.filter(data, d => {
       let match
       for (let i = 0; i < filterKeys.length; i++) {
         if((d[filterKeys[i]]||'').match(new RegExp(filter, 'gi'))){ match = true; break; }
@@ -124,7 +121,7 @@ const DataTableElement = ({ cols=[], data=[], max=10, dark, onClick, hideHead })
     <tbody>
       { data.map((item, i) => <tr key={i} onClick={()=>onClick(item)}>
         { cols.map((col, y) => <td key={y} className={`text-${col.align||'left'}`}>
-          {(col.transform || (v => v))(_get(item, col.path || col.key), item)}
+          {(col.transform || (v => v))(_.get(item, col.path || col.key), item)}
         </td>)}
       </tr>)}
     </tbody>

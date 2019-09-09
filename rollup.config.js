@@ -16,21 +16,5 @@ export default [
         commonjs(),
         terser(),
       ]
-    },
-    // {
-    //   input: 'src/index.js',
-    //   output: {
-    //     file: 'dist/index.umd.js',
-    //     format: 'umd',
-    //     name: 'myBundle',
-    //     globals: { react: 'React' }
-    //   },
-    //   external: ['react'],
-    //   plugins: [
-    //     resolve(),
-    //     babel(),
-    //     commonjs(),
-    //     // terser(),
-    //   ]
-    // }
+    }
 ]

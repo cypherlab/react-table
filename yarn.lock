@@ -713,10 +713,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@cypherlab/js-utils@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@cypherlab/js-utils/-/js-utils-0.0.5.tgz#8dfecdf1dcacaa4699d34858d822fc5234035705"
-  integrity sha512-CFm83u59rzb+FQhmXJPfQh5Q/PObEoNLoBmEVCu61u8DTrYp1uVCBhMvM1yJ1fJaqGA5vAMQz+7TMY+Vesgrgw==
+"@cypherlab/js-utils@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@cypherlab/js-utils/-/js-utils-0.0.6.tgz#cec5365ef38c6418449f63392b8faac01db53cba"
+  integrity sha512-90trhj9aC8+ph0sOMKzzvnqfB+lDdf+aHTsqwETpSaMq6ICUvVF9NQ0iwIRilHpkKU2IUA5H1n5kq/bh7LimKQ==
   dependencies:
     esm "^3.2.25"
     lodash "^4.17.15"
