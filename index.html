@@ -13,7 +13,7 @@
 
     <script async type="module">
 
-      import MyComponent from '../dist/index.js'
+      import MyComponent from '/dist/index.js'
 
       (async () => {
 
@@ -21,9 +21,16 @@
         const text = await res.text()
 
         const props = {
-            data: text.split('\n').map(word => ({ key: word }))
-          , cols: [{ key: 'key' }]
-          , hideHead: true
+            data: text.split('\n').map(word => ({ word }))
+          , cols: [
+                { key: 'word', class: 'text-center w-25' }
+              , { key: 'size', path: 'word', transform: (v)=>`${v.length} letters` }
+            ]
+          , searchKeys: 'word'
+          , title: 'My Table'
+          , debug: true
+          // , hideHead: true
+          // , hideNoQuery: true
         }
         
         ReactDOM.render(MyComponent(props), document.getElementById('root'))

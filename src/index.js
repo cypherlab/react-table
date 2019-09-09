@@ -3,16 +3,6 @@ import { _, asArray } from '@cypherlab/js-utils'
 
 
 class DataTable extends React.Component {
-  
-  shouldComponentUpdate(nextProps, nextState) {
-    return true
-    // console.log('should', nextProps.filter, this.props.filter)
-    console.log('should', nextState.filter, this.state.filter)
-    if(nextState.filter != this.state.filter)
-      return true
-    else
-      return false
-  }
 
   constructor (props) {
     super(props)
@@ -44,8 +34,7 @@ class DataTable extends React.Component {
   filtered() {
     const { data, searchKeys, hideNoQuery } = this.props
     const { filter, max } = this.state
-    let filterKeys = asArray(searchKeys) 
-    filterKeys = filterKeys.length ? filterKeys : ['key']
+    const filterKeys = asArray(searchKeys) 
 
     if(hideNoQuery && !filter) return []
 
@@ -71,11 +60,14 @@ class DataTable extends React.Component {
   }
 
   render () {
-    const { title, data, height='400px', color='#3592d6' } = this.props
+    const { title, data, height, color, searchKeys, debug } = this.props
     const { filter } = this.state
     const filtered = this.filtered()
 
     return (<div className="box">
+
+      { debug && <code className="d-block p-3">{JSON.stringify({ filter, result: filtered.length, searchKeys })}</code> }
+
 
       <div style={{background: color}} className="header d-flex justify-content-between align-items-center p-2 text-light">
         <div className="form-inline">
@@ -108,11 +100,11 @@ class DataTable extends React.Component {
 
 
 const DataTableElement = ({ cols=[], data=[], max=10, dark, onClick, hideHead }) => (<div>
-  <table className={`table table-sm table-striped ${dark&&'table-dark'}`}>
+  <table className={`table table-sm table-striped ${dark?'table-dark':''}`}>
 
     { !hideHead && <thead>
       <tr>
-        { cols.map((col, i) => <th key={i} className={`text-${col.align||'left'}`}>
+        { cols.map((col, i) => <th key={i} className={col.class}>
           {col.key}
         </th>)}
       </tr>
@@ -120,7 +112,7 @@ const DataTableElement = ({ cols=[], data=[], max=10, dark, onClick, hideHead })
 
     <tbody>
       { data.map((item, i) => <tr key={i} onClick={()=>onClick(item)}>
-        { cols.map((col, y) => <td key={y} className={`text-${col.align||'left'}`}>
+        { cols.map((col, y) => <td key={y} className={col.class}>
           {(col.transform || (v => v))(_.get(item, col.path || col.key), item)}
         </td>)}
       </tr>)}
@@ -134,27 +126,30 @@ const DataTableElement = ({ cols=[], data=[], max=10, dark, onClick, hideHead })
 const DataTableWrapper = ({ 
     data
   , cols
-  , onClick
-  , name
-  , filter
-  , onFilter
-  , searchKeys
-  , hideHead 
-  , hideNoQuery 
-  , height
+  , title=''
+  , filter=''
+  , searchKeys=['key']
+  , onFilter=(f)=>{}
+  , onClick=(i)=>console.log(i)
+  , hideHead=false
+  , hideNoQuery=false
+  , height='400px'
+  , color='#3592d6'
+  , debug=false
 } = {}) => (<div>
   <DataTable 
-    title={name}
     data={data} 
     cols={cols}
+    title={title}
     filter={filter}
-    onFilter={onFilter}
     searchKeys={searchKeys}
-    height={height}
-    color={'#4575ce'}
+    onFilter={onFilter}
     onClick={onClick}
     hideHead={hideHead}
     hideNoQuery={hideNoQuery}
+    height={height}
+    color={color}
+    debug={debug}
   />
 </div>)
 
