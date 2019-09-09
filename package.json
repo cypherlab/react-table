@@ -1,6 +1,6 @@
 {
   "name": "@cypherlab/react-table",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Advanced Table",
   "author": "Louis Grellet <louis.grellet@gmail.com>",
   "license": "ISC",
@@ -17,7 +17,12 @@
   "files": [
     "dist"
   ],
-  "babel": { "presets": ["@babel/preset-react", "@babel/preset-env"] },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-env"
+    ]
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
