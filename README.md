@@ -33,7 +33,3 @@ You can play with the browser test file in the test folder.
 npm run dev
 browse to http://localhost:8000/test/
 ```
-
-yarn add -D @babel/cli @babel/core @babel/preset-env @babel/preset-react
-yarn add -D rollup rollup-plugin-babel rollup-plugin-commonjs rollup-plugin-node-resolve rollup-plugin-terser
-yarn add -D react react-dom
