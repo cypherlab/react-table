@@ -26,7 +26,6 @@ class DataTable extends React.Component {
 
     this.filterRef = React.createRef()
 
-    // this.onFilter = this.onFilter.bind(this)
     this.onFilter = _debounce(this.onFilter.bind(this), 300)
     this.filtered = this.filtered.bind(this)
     this.count = this.count.bind(this)
