@@ -25,12 +25,12 @@ import Table from '@cypherlab/react-table'
 ```
 
 
-## Test
+## Test 
 
 You can play with the browser test file in the test folder.
 
 ```js
-npm run test
+npm run dev
 browse to http://localhost:8000/test/
 ```
 

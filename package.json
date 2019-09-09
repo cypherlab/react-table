@@ -9,8 +9,8 @@
   "module": "src/index.js",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "npx rollup -c -w",
-    "test": "npm run dev && npx serv",
+    "watch": "npx rollup -c -w",
+    "dev": "npm run watch && npx serv",
     "build": "npx rollup -c",
     "prepare": "npm run build"
   },
