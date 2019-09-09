@@ -1,6 +1,7 @@
 import { default as _filter } from 'lodash/filter'
 import { default as _debounce } from 'lodash/debounce'
-import { asArray, resolvePath } from '@cypherlab/js-utils'
+import { default as _get } from 'lodash/get'
+import { asArray } from '@cypherlab/js-utils'
 
 
 
@@ -123,7 +124,7 @@ const DataTableElement = ({ cols=[], data=[], max=10, dark, onClick, hideHead })
     <tbody>
       { data.map((item, i) => <tr key={i} onClick={()=>onClick(item)}>
         { cols.map((col, y) => <td key={y} className={`text-${col.align||'left'}`}>
-          {(col.transform || (v => v))(resolvePath(item, col.path || col.key), item)}
+          {(col.transform || (v => v))(_get(item, col.path || col.key), item)}
         </td>)}
       </tr>)}
     </tbody>

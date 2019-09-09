@@ -5,9 +5,9 @@
   "author": "Louis Grellet <louis.grellet@gmail.com>",
   "license": "ISC",
   "repository": "https://github.com/cypherlab/react-table",
-  "source": "src/index.js",
-  "module": "src/index.js",
   "main": "dist/index.js",
+  "module": "src/index.js",
+  "source": "src/index.js",
   "scripts": {
     "watch": "npx rollup -c -w",
     "dev": "npm run watch > /dev/null | npx serv",
@@ -38,7 +38,7 @@
     "rollup-plugin-terser": "^5.1.1"
   },
   "dependencies": {
-    "@cypherlab/js-utils": "^0.0.4",
+    "@cypherlab/js-utils": "^0.0.5",
     "lodash": "^4.17.15"
   }
 }
