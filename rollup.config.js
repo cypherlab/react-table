@@ -20,8 +20,8 @@ export default [
     // {
     //   input: 'src/index.js',
     //   output: {
-    //     file: 'dist/index.iife.js',
-    //     format: 'iife',
+    //     file: 'dist/index.umd.js',
+    //     format: 'umd',
     //     name: 'myBundle',
     //     globals: { react: 'React' }
     //   },
@@ -30,7 +30,7 @@ export default [
     //     resolve(),
     //     babel(),
     //     commonjs(),
-    //     terser(),
+    //     // terser(),
     //   ]
     // }
 ]

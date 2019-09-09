@@ -10,12 +10,13 @@
   "main": "dist/index.js",
   "scripts": {
     "watch": "npx rollup -c -w",
-    "dev": "npm run watch && npx serv",
+    "dev": "npm run watch > /dev/null | npx serv",
     "build": "npx rollup -c",
     "prepare": "npm run build"
   },
   "files": [
-    "dist"
+    "dist", 
+    "src"
   ],
   "babel": {
     "presets": [
