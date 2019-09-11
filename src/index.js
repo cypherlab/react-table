@@ -105,7 +105,7 @@ const DataTableElement = ({ cols=[], data=[], max=10, dark, onClick, hideHead })
     { !hideHead && <thead>
       <tr>
         { cols.map((col, i) => <th key={i} className={col.class}>
-          {col.key}
+          {col.name || col.key}
         </th>)}
       </tr>
     </thead>}
@@ -113,7 +113,7 @@ const DataTableElement = ({ cols=[], data=[], max=10, dark, onClick, hideHead })
     <tbody>
       { data.map((item, i) => <tr key={i} onClick={()=>onClick(item)}>
         { cols.map((col, y) => <td key={y} className={col.class}>
-          {(col.transform || (v => v))(_.get(item, col.path || col.key), item)}
+          {(col.transform || (v => v))(_.get(item, col.key), item)}
         </td>)}
       </tr>)}
     </tbody>

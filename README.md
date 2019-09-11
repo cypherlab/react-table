@@ -15,6 +15,9 @@ npm i @cypherlab/react-table
 
 ## Usage
 
+See [Live demo](https://raw.githack.com/cypherlab/react-table/master/index.html)
+See [code example] (https://github.com/cypherlab/react-table/blob/master/index.html)
+
 ```js
 import Table from '@cypherlab/react-table'
 
@@ -28,7 +31,7 @@ const props = {
   ]
 
   cols: [
-      { key: 'name', align: 'center' }
+      { key: 'name', class: 'text-center w-25' }
     , { key: 'country', path: 'lang', transform: transformToFlag }
   ]
 }
@@ -36,6 +39,8 @@ const props = {
 // render
 <Table {...props} />
 ```
+
+
 
 ## Table options
 
@@ -48,7 +53,7 @@ const props = {
 | searchKeys    | comma separated. ex: `foo,name.first`. default: `key`           |
 | onFilter      |                                                                 |
 | onClick       |                                                                 |
-| hideHead      | hide table <th>. default: `false`                               |
+| hideHead      | hide table `thead`. default: `false`                            |
 | hideNoQuery   | show empty table if no filter. default: `false`                 | 
 | height        | table height. default: `400px`                                  |
 | color         | table head color. default: `#3592d6`                            |
@@ -58,8 +63,8 @@ const props = {
 
 | option        | info                                                            |
 |---------------|-----------------------------------------------------------------|
-| key           | name of column                                                  |
-| path          | default: `key`                                                  |
+| key           | key in which to pull value                                      |
+| name          | optional column name. default to `key` value                    |
 | class         | ex: `text-center w-25`                                          |
 | transform     | (v, item) => [v, item[v]].join(',')                             |
 
@@ -70,6 +75,5 @@ const props = {
 You can play with the component in the browser via the `index.html`.
 
 ```js
-npm run dev
-browse to http://localhost:8000/test/
+(yarn|npm) run dev
 ```
