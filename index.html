@@ -13,28 +13,14 @@
 
     <script async type="module">
 
-      const $import = async (paths=[], debug=false) => {
-        let first
-
-        for (const p of paths) {
-          try { 
-            first = (await import(p)).default 
-            debug && console.log(`$import via "${p}"`)
-            break
-          }catch(e){}
-        }
-
-        !first && debug && console.log(`$import failed"`)
-        
-        return first
-      }
+      import esmImport from 'https://unpkg.com/@cypherlab/esm-import'
 
       (async () => {
 
-        const MyComponent = await $import([
-            '/dist/index.js' // local import
+        const MyComponent = await esmImport([
+            `${document.location.origin}/dist/index.js`   // local import
           , 'https://unpkg.com/@cypherlab/react-table' // global import (for raw.githack.com)
-        ])
+        ], true)
 
         // for the data demonstration, we fetch a "words collection" from a github file
         const res = await fetch('https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt')

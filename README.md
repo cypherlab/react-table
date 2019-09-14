@@ -15,8 +15,8 @@ npm i @cypherlab/react-table
 
 ## Usage
 
-See [Live demo](https://raw.githack.com/cypherlab/react-table/master/index.html)
-See [code example] (https://github.com/cypherlab/react-table/blob/master/index.html)
+See [Live demo](https://raw.githack.com/cypherlab/react-table/master/index.html)  
+See [Code example](https://github.com/cypherlab/react-table/blob/master/index.html)  
 
 ```js
 import Table from '@cypherlab/react-table'

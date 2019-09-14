@@ -1,7 +1,6 @@
 import { _, asArray } from '@cypherlab/js-utils'
 
 
-
 class DataTable extends React.Component {
 
   constructor (props) {
