@@ -17,10 +17,10 @@
 
       (async () => {
 
-        const MyComponent = await esmImport([
-            `${document.location.origin}/dist/index.js`   // local import
-          , 'https://unpkg.com/@cypherlab/react-table' // global import (for raw.githack.com)
-        ], true)
+        const MyComponent = await esmImport([ 
+            `${document.location.origin}/dist/index.js`
+          , 'https://unpkg.com/@cypherlab/react-table' 
+        ])
 
         // for the data demonstration, we fetch a "words collection" from a github file
         const res = await fetch('https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt')
@@ -48,8 +48,7 @@
           , title: 'My Table'
 
           // Enable debuging component, default to false
-          , debug: true
-
+          , debug: false
 
           // Hide the table header, default to false
           , hideHead: false
