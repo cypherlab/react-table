@@ -67,7 +67,6 @@ class DataTable extends React.Component {
 
       { debug && <code className="d-block p-3">{JSON.stringify({ filter, result: filtered.length, searchKeys })}</code> }
 
-
       <div style={{background: color}} className="header d-flex justify-content-between align-items-center p-2 text-light">
         <div className="form-inline">
           <input ref={this.filterRef} onChange={e=>this.onFilter(e.target.value)} className="search-input form-control" type="search" placeholder="Search" />
@@ -80,7 +79,7 @@ class DataTable extends React.Component {
         <DataTableElement {...this.props} data={filtered} />
       </div>
 
-      <style jsx>{`
+      <style jsx="true">{`
         .box {
           box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
         }
