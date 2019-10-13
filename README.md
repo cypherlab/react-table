@@ -9,7 +9,7 @@ Advanced Table
 
 ## Install
 ```
-npm i @cypherlab/react-table
+yarn add @cypherlab/react-table
 ```
 
 
@@ -25,15 +25,18 @@ import Table from '@cypherlab/react-table'
 const transformToFlag = (v, item) => (<img src={`/img/flags/${v}.png`} />)
 
 const props = {
-  data: [
-      { name: 'bruce wayne', lang: 'en' }
-    , { name: 'victor hugo', lang: 'fr' }
-  ]
+    data: [
+        { name: 'bruce wayne', lang: 'en' }
+      , { name: 'victor hugo', lang: 'fr' }
+      , { name: 'satoshi nakamoto', lang: 'en' }
+    ]
 
-  cols: [
-      { key: 'name', class: 'text-center w-25' }
-    , { key: 'country', path: 'lang', transform: transformToFlag }
-  ]
+  , cols: [
+        { key: 'name', class: 'text-center w-25' }
+      , { key: 'lang', name: 'country', transform: transformToFlag }
+    ]
+
+  , searchKeys: 'name'
 }
 
 // render
